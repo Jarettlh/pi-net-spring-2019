@@ -1,0 +1,15 @@
+[Match]
+# We only want to match the eth0 interface
+Name=eth0
+
+# Provide full address config in abbreviated notation
+[Network]
+# DHCP Server Address
+Address=172.21.12.129/25
+# DNS Server Address
+Address=172.21.12.130/25
+
+# Enable link local addresses for IPv6 (FE80::)
+LinkLocalAddressing=ipv6
+
+VLAN=vlan10

@@ -1,0 +1,41 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+view "external" {
+    match-destinations { 172.21.12.1; };
+ 
+    zone "barryuw.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.barryuw.pi";
+    };
+    
+    allow-recursion { none; };
+};
+ 
+view "internal" {
+    match-destinations { 127.0.0.1; 172.21.12.130; };
+ 
+    zone "barryuw.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.barryuw.pi";
+    };
+ 
+    zone "priv.barryuw.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.priv.barryuw.pi";
+    };
+ 
+    zone "pi" IN {
+        type slave;
+        masters { 10.10.10.10; };
+    };
+
+    include "/etc/bind/named.conf.default-zones";
+    allow-recursion { trusted; };
+};
+

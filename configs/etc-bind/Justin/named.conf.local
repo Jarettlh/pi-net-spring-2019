@@ -1,0 +1,44 @@
+//
+// Do any local configuration here
+//
+
+    //  We're setting up the master server for the zone. In DNS, masters contain
+    //  the zone file for a domain while slaves read the zone contents from a
+    //  master server.
+
+view "external" {
+    match-destinations { 172.21.15.1; };
+
+    zone "lion.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.lion.pi";
+    };
+    
+    allow-recursion { none; };
+};
+
+view "internal" {
+    match-destinations { 127.0.0.1; 172.21.15.130; };
+
+    zone "lion.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.lion.pi";
+    };
+
+    zone "local.lion.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.local.lion.pi";
+    };
+
+    zone "pi" IN {
+        type slave;
+        masters { 10.10.10.10; };
+    };
+
+    include "/etc/bind/named.conf.default-zones";
+    allow-recursion { clients; };
+};
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";

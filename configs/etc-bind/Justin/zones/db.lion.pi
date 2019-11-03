@@ -1,0 +1,24 @@
+;
+; SOA record for lion.pi
+; Primary NS - ns.lion.pi
+; Mail Server - mx01.lion.pi
+; Administrative Email - justin15@uw.edu
+;
+$TTL    604800
+@       IN      SOA     ns.lion.pi. justin15.uw.edu. (
+    2019060801          ; SERIAL (YYYYMMDDnn:00)
+    86400               ; REFRESH (24 hours)
+    7200                ; RETRY (2 hours)
+    3600000             ; EXPIRE (1000 hours)
+    172800              ; MINIMUM TTL (2 days)
+)
+
+; Name Servers - NS records
+@	IN  NS  ns.lion.pi.
+; Glue Records
+ns	IN  A   172.21.15.1
+
+; MX Record Data
+@	IN  MX  100 mx01.lion.pi.
+; The hostnames referred to by MX records must resolve to address 
+mx01	IN  A   172.21.15.2

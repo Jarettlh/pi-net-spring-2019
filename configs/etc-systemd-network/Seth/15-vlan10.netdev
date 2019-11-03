@@ -1,0 +1,7 @@
+[NetDev]
+Name=vlan10
+Kind=vlan
+
+[VLAN]
+# Specify the tag
+Id=10

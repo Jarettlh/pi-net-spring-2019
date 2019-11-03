@@ -1,0 +1,18 @@
+;
+; SOA record for lan.oreoicecream.pi
+; Primary NS - pandafish.lan.oreoicecream.pi
+; Admin Email - jarettlh@uw.edu
+;
+$TTL	172800
+lan.oreoicecream.pi.		IN	SOA	pandafish.lan.oreoicecream.pi. jarettlh.uw.edu (
+		2019060703	; SERIAL
+		86400		; REFRESH (24h)
+		7200		; RETRY (2h)
+		3600000		; EXPIRE (1000h)
+		172800		; TTL (2d)
+)
+@		IN	NS	pandafish.lan.oreoicecream.pi.
+pandafish	IN	A	172.21.13.130
+@		IN	MX 0	mta.lan.oreoicecream.pi.
+mta		IN	A	172.21.13.130
+

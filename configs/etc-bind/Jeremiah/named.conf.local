@@ -1,0 +1,42 @@
+//
+// Do any local configuration here
+//
+view "external" {
+    match-destinations { 172.21.14.1; };
+ 
+    zone "odegaardstairs.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.dns1.odegaardstairs.pi";
+    };
+    
+    allow-recursion { none; };
+};
+ 
+view "internal" {
+    match-destinations { 127.0.0.1; 172.21.14.130; };
+ 
+    zone "odegaardstairs.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.dns1.odegaardstairs.pi";
+    };
+ 
+    zone "lan.odegaardstairs.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.lan.odegaardstairs.pi";
+    };
+ 
+    
+    zone "pi" IN{
+        type slave;
+        masters {10.10.10.10; };
+    };
+	
+    include "/etc/bind/named.conf.default-zones";
+    allow-recursion { goodclients; };
+};
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+

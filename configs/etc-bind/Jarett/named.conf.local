@@ -1,0 +1,35 @@
+//
+// Do any local configuration here
+//
+ 
+view "external" {
+    match-destinations { 172.21.13.1; };
+ 
+    zone "oreoicecream.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.oreoicecream.pi";
+    };
+    
+    allow-recursion { none; };
+};
+ 
+view "internal" {
+    match-destinations { 127.0.0.1; 172.21.13.130; };
+    allow-recursion { trusted; };
+    zone "oreoicecream.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.oreoicecream.pi";
+    };
+ 
+    zone "lan.oreoicecream.pi" IN {
+        type master;
+        file "/etc/bind/zones/db.lan.oreoicecream.pi";
+    };
+
+    zone "pi" IN {
+        type slave;
+        masters { 10.10.10.10; };
+    };
+ 
+    include "/etc/bind/named.conf.default-zones";
+};

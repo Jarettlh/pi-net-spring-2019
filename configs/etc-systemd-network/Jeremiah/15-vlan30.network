@@ -1,0 +1,7 @@
+[Match]
+Name=vlan30
+
+[Network]
+LinkLocalAddressing=ipv6
+IPv6AcceptRA=yes
+IPv6PrivacyExtensions=no

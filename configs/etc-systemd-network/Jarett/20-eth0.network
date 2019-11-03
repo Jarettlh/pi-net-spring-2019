@@ -1,0 +1,22 @@
+[Match]
+# We only want to match the eth0 interface
+Name=eth0
+
+# PRIVATE-FACING SUBNET
+[Network]
+
+# DHCP, Routing Server Address
+Address=172.21.13.129/25
+
+# DNS, Mail Server Address
+Address=172.21.13.130/25
+
+# Enable link local addresses for IPv6 (FE80::)
+LinkLocalAddressing=ipv6
+
+# Tagged VLANs Referenced by Interface Name
+
+VLAN=vlan10
+VLAN=vlan30
+VLAN=vlan40
+VLAN=vlan99

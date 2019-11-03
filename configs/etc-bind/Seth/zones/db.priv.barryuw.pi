@@ -1,0 +1,20 @@
+;
+; SOA record for priv.barryuw.pi
+; 
+$TTL	604800
+@	IN	SOA	cat.priv.barryuw.pi. sda8.uw.edu. (
+			     13		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+; NS record for domain
+;
+priv.barryuw.pi. 86400 IN NS cat.priv.barryuw.pi.
+cat.priv.barryuw.pi. 86400 IN A 172.21.12.130
+
+; MX record for domain
+;
+priv.barryuw.pi. 10800 IN MX 100 duck.priv.barryuw.pi.
+duck.priv.barryuw.pi. 86400 IN A 172.21.12.130

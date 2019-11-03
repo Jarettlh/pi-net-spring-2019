@@ -1,0 +1,6 @@
+[Match]
+Name=dmz0
+
+[Network]
+Address=172.21.13.1/32
+Address=172.21.13.2/32

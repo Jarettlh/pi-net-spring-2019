@@ -1,0 +1,19 @@
+;
+; SOA record for oreoicecream.pi
+; Primary NS - dns.oreoicecream.pi
+; Admin Email - jarettlh@uw.edu
+;
+$TTL	172800
+oreoicecream.pi.		IN	SOA	dns.oreoicecream.pi. jarettlh.uw.edu (
+		2019060703	; SERIAL
+		86400		; REFRESH (24h)
+		7200		; RETRY (2h)
+		3600000		; EXPIRE (1000h)
+		172800		; TTL (2d)
+)
+@		IN	NS	dns.oreoicecream.pi.
+dns		IN	A	172.21.13.1
+
+@		IN	MX 0	mta.oreoicecream.pi.
+mta		IN	A	172.21.13.2
+

@@ -1,0 +1,15 @@
+[Match]
+# We only want to match the eth0 interface
+Name=eth0
+
+[Network]
+# Routing and DHCP
+Address=172.21.15.129/25
+# DNS
+Address=172.21.15.130/25
+
+# Enable link local addresses for IPv6 (FE80::)
+LinkLocalAddressing=ipv6
+
+# Tagged VLANs Referenced by Interface Name
+VLAN=vlan40

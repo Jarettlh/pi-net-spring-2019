@@ -1,0 +1,16 @@
+
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     dns01.odegaardstairs.pi. chengj29.uw.edu. (
+                     2019060702         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+odegaardstairs.pi.      86400   IN      NS      dns01.odegaardstairs.pi.
+dns01.odegaardstairs.pi.        86400   IN      A       172.21.14.1
+odegaardstairs.pi.      10800   IN      MX      100 mail01.odegaardstairs.pi.
+mail01.odegaardstairs.pi.       86400   IN A 172.21.14.2
+
